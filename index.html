@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>FRIGUS — Engenharia do Frio</title>
+<meta name="description" content="FRIGUS — refrigeração e climatização de alta precisão. Ar-condicionado, geladeiras, freezers e sistemas de conforto térmico." />
+<meta name="theme-color" content="#06151C" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
+<script>
+  /* Marca que o JS está ativo ANTES do primeiro paint, para o título do hero
+     já nascer na posição inicial da animação. Sem isto ele pisca ~2 quadros
+     no lugar final antes de o GSAP assumir. Se o JS estiver desligado a
+     classe nunca entra e o texto aparece normalmente. */
+  document.documentElement.classList.add("js-anim");
+</script>
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+</head>
+
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#hero" aria-label="FRIGUS — início">
+    <svg class="nav__logo-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 2v20M12 2v20M3.4 7l17.2 10M3.4 17l17.2-10" />
+      <path d="M12 6.4 9.2 4.2M12 6.4l2.8-2.2M12 17.6l-2.8 2.2M12 17.6l2.8 2.2" />
+    </svg>
+    <span class="nav__logo-text">FRIGUS</span>
+  </a>
+
+  <nav class="nav__menu" aria-label="Navegação principal">
+    <ul>
+      <li><a href="#hero" data-nav="hero"><em>01</em><span>Início</span></a></li>
+      <li><a href="#servicos" data-nav="servicos"><em>02</em><span>Serviços</span></a></li>
+      <li><a href="#processo" data-nav="processo"><em>03</em><span>Processo</span></a></li>
+      <li><a href="#tecnologia" data-nav="tecnologia"><em>04</em><span>Tecnologia</span></a></li>
+      <li><a href="#contato" data-nav="contato"><em>05</em><span>Contato</span></a></li>
+    </ul>
+  </nav>
+
+  <a class="nav__cta" href="#contato">
+    <span class="nav__cta-dot" aria-hidden="true"></span>
+    Atendimento
+  </a>
+
+  <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<!-- mobile menu -->
+<div class="mnav" id="mobileMenu" aria-hidden="true">
+  <ul>
+    <li><a href="#hero"><em>01</em>Início</a></li>
+    <li><a href="#intro"><em>02</em>Conceito</a></li>
+    <li><a href="#servicos"><em>03</em>Serviços</a></li>
+    <li><a href="#processo"><em>04</em>Processo</a></li>
+    <li><a href="#tecnologia"><em>05</em>Tecnologia</a></li>
+    <li><a href="#contato"><em>06</em>Contato</a></li>
+  </ul>
+  <div class="mnav__foot">
+    <span>RIO DE JANEIRO — BR</span>
+    <span>24/7</span>
+  </div>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+<main id="main">
+
+<!-- ============ 01 — HERO ============ -->
+<section class="hero" id="hero" data-section="hero">
+  <div class="hero__stage">
+    <div class="hero__media" id="heroMedia">
+      <video id="heroVideo" class="hero__video"
+             playsinline muted preload="auto" disablepictureinpicture
+             poster="assets/images/poster-hero.jpg" aria-hidden="true" data-fallback="https://d8j0ntlcm91z4.cloudfront.net/user_3IZOrgGtP6buNjeGHc2EBMXsOHp/hf_20260915_195443_2603e7d6-ff93-47e3-8b3e-03b57417a5f4.mp4">
+        <source src="assets/videos/hero-scrub.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__grain" aria-hidden="true"></div>
+      <div class="hero__vignette" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-hero-fade>
+        <span class="line"></span>Engenharia do frio — desde 2009
+      </p>
+
+      <h1 class="hero__title">
+        <span class="mask"><span data-hero-word>Controle</span></span>
+        <span class="mask"><span data-hero-word>sobre o <i>frio.</i></span></span>
+      </h1>
+
+      <p class="hero__sub" data-hero-fade>
+        Refrigeração e climatização de alta precisão para residências,
+        comércios e operações que não podem parar.
+      </p>
+    </div>
+
+    <div class="hero__hud" aria-hidden="true">
+      <div class="hero__hud-item"><em>TEMP</em><span id="hudTemp">—18.0°C</span></div>
+      <div class="hero__hud-item"><em>SISTEMA</em><span>ESTÁVEL</span></div>
+      <div class="hero__hud-item hero__hud-item--right"><em>REG.</em><span id="hudFrame">000</span></div>
+    </div>
+
+    <div class="hero__scroll" data-hero-fade>
+      <span>Role para explorar</span>
+      <span class="hero__scroll-line" aria-hidden="true"><i></i></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 — INTRO ============ -->
+<section class="intro" id="intro" data-section="intro">
+  <div class="intro__inner">
+    <span class="tag" data-blur-item>[ 02 — Conceito ]</span>
+    <h2 class="intro__text" id="introText">
+      Mais do que controlar a temperatura. Controlamos a sensação de um ambiente inteiro.
+    </h2>
+    <div class="intro__meta">
+      <div data-blur-item>
+        <em>Precisão</em>
+        <p>Diagnóstico técnico com instrumentação, não por tentativa e erro.</p>
+      </div>
+      <div data-blur-item>
+        <em>Continuidade</em>
+        <p>Manutenção preventiva que antecipa a falha antes do prejuízo.</p>
+      </div>
+      <div data-blur-item>
+        <em>Silêncio</em>
+        <p>Sistemas calibrados para desaparecer do ambiente que controlam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 — SERVIÇOS (4 animações distintas) ============ -->
+<section class="svc" id="servicos" data-section="servicos">
+
+  <div class="svc__head">
+    <span class="tag">[ 03 — Serviços ]</span>
+    <h2 class="h-display">Quatro frentes.<br /><span class="soft">Um mesmo padrão.</span></h2>
+  </div>
+
+  <!-- 01 — slide lateral -->
+  <article class="svc__row svc__row--a" data-svc="a">
+    <div class="svc__num">01</div>
+    <div class="svc__body">
+      <h3>Ar-condicionado</h3>
+      <p>Instalação, higienização e manutenção preventiva e corretiva de sistemas split, multi split, piso-teto, cassete e janela.</p>
+      <ul class="svc__list">
+        <li>Split &amp; Multi Split</li><li>Piso Teto</li><li>Cassete</li><li>Janela</li>
+      </ul>
+    </div>
+    <div class="svc__visual"><video class="svc__video" src="assets/videos/ac.mp4" muted playsinline loop preload="none" poster="assets/images/poster-ac.jpg" aria-hidden="true" data-fallback="https://d8j0ntlcm91z4.cloudfront.net/user_3IZOrgGtP6buNjeGHc2EBMXsOHp/hf_20260915_195443_63ff9e5c-24e3-4b24-b90d-ec9d534cbd70.mp4"></video></div>
+  </article>
+
+  <!-- 02 — cresce do centro -->
+  <article class="svc__row svc__row--b" data-svc="b">
+    <div class="svc__num">02</div>
+    <div class="svc__body">
+      <h3>Geladeiras</h3>
+      <p>Assistência técnica especializada em refrigeradores residenciais, comerciais e linha premium de embutir.</p>
+      <ul class="svc__list">
+        <li>Residenciais</li><li>Comerciais</li><li>Balcões</li><li>Reparos</li>
+      </ul>
+    </div>
+    <div class="svc__visual"><video class="svc__video" src="assets/videos/hero.mp4" muted playsinline loop preload="none" poster="assets/images/poster-hero.jpg" aria-hidden="true" data-fallback="https://d8j0ntlcm91z4.cloudfront.net/user_3IZOrgGtP6buNjeGHc2EBMXsOHp/hf_20260915_195443_2603e7d6-ff93-47e3-8b3e-03b57417a5f4.mp4"></video></div>
+  </article>
+
+  <!-- 03 — máscara clip-path -->
+  <article class="svc__row svc__row--c" data-svc="c">
+    <div class="svc__num">03</div>
+    <div class="svc__body">
+      <h3>Freezers</h3>
+      <p>Manutenção e reparo em equipamentos de refrigeração comercial de operação contínua, horizontais e verticais.</p>
+      <ul class="svc__list">
+        <li>Horizontais</li><li>Verticais</li><li>Expositores</li><li>Câmaras leves</li>
+      </ul>
+    </div>
+    <div class="svc__visual"><video class="svc__video" src="assets/videos/frost.mp4" muted playsinline loop preload="none" poster="assets/images/poster-frost.jpg" aria-hidden="true" data-fallback="https://d8j0ntlcm91z4.cloudfront.net/user_3IZOrgGtP6buNjeGHc2EBMXsOHp/hf_20260915_195443_d4bff3ea-80f3-41ab-b111-6ec9f2aa1d41.mp4"></video></div>
+  </article>
+
+  <!-- 04 — desliza vertical -->
+  <article class="svc__row svc__row--d" data-svc="d">
+    <div class="svc__num">04</div>
+    <div class="svc__body">
+      <h3>Climatização</h3>
+      <p>Projetos de conforto térmico, carga térmica, dimensionamento e automação para ambientes que exigem estabilidade.</p>
+      <ul class="svc__list">
+        <li>Carga térmica</li><li>Dimensionamento</li><li>Automação</li><li>Qualidade do ar</li>
+      </ul>
+    </div>
+    <div class="svc__visual"><video class="svc__video" src="assets/videos/coil.mp4" muted playsinline loop preload="none" poster="assets/images/poster-coil.jpg" aria-hidden="true" data-fallback="https://d8j0ntlcm91z4.cloudfront.net/user_3IZOrgGtP6buNjeGHc2EBMXsOHp/hf_20260915_195454_162ebfef-450b-43f0-8696-084e2094134c.mp4"></video></div>
+  </article>
+</section>
+
+<!-- ============ 04 — GALERIA HORIZONTAL ============ -->
+<section class="gal" id="galeria" data-section="servicos">
+  <div class="gal__pin" id="galPin">
+    <div class="gal__track" id="galTrack">
+
+      <div class="gal__intro">
+        <span class="tag">[ 04 — Portfólio técnico ]</span>
+        <h2 class="h-display">O frio<br />em quatro<br /><span class="soft">estados.</span></h2>
+        <span class="gal__hint">Arraste o scroll →</span>
+      </div>
+
+      <figure class="gal__card">
+        <div class="gal__media"><video src="assets/videos/ac.mp4" muted playsinline loop preload="none" poster="assets/images/poster-ac.jpg" aria-hidden="true" data-fallback="https://d8j0ntlcm91z4.cloudfront.net/user_3IZOrgGtP6buNjeGHc2EBMXsOHp/hf_20260915_195443_63ff9e5c-24e3-4b24-b90d-ec9d534cbd70.mp4"></video></div>
+        <figcaption><em>01 / Ar-condicionado</em><span>Fluxo controlado</span></figcaption>
+      </figure>
+
+      <figure class="gal__card">
+        <div class="gal__media"><video src="assets/videos/hero.mp4" muted playsinline loop preload="none" poster="assets/images/poster-hero.jpg" aria-hidden="true" data-fallback="https://d8j0ntlcm91z4.cloudfront.net/user_3IZOrgGtP6buNjeGHc2EBMXsOHp/hf_20260915_195443_2603e7d6-ff93-47e3-8b3e-03b57417a5f4.mp4"></video></div>
+        <figcaption><em>02 / Geladeiras</em><span>Conservação estável</span></figcaption>
+      </figure>
+
+      <figure class="gal__card">
+        <div class="gal__media"><video src="assets/videos/frost.mp4" muted playsinline loop preload="none" poster="assets/images/poster-frost.jpg" aria-hidden="true" data-fallback="https://d8j0ntlcm91z4.cloudfront.net/user_3IZOrgGtP6buNjeGHc2EBMXsOHp/hf_20260915_195443_d4bff3ea-80f3-41ab-b111-6ec9f2aa1d41.mp4"></video></div>
+        <figcaption><em>03 / Freezers</em><span>Baixa temperatura</span></figcaption>
+      </figure>
+
+      <figure class="gal__card">
+        <div class="gal__media"><video src="assets/videos/coil.mp4" muted playsinline loop preload="none" poster="assets/images/poster-coil.jpg" aria-hidden="true" data-fallback="https://d8j0ntlcm91z4.cloudfront.net/user_3IZOrgGtP6buNjeGHc2EBMXsOHp/hf_20260915_195454_162ebfef-450b-43f0-8696-084e2094134c.mp4"></video></div>
+        <figcaption><em>04 / Climatização</em><span>Troca térmica</span></figcaption>
+      </figure>
+
+      <div class="gal__end">
+        <p>Cada equipamento tem uma curva.<br />Nós trabalhamos dentro dela.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 — PROCESSO ============ -->
+<section class="proc" id="processo" data-section="processo">
+  <div class="proc__head">
+    <span class="tag">[ 05 — Como funciona ]</span>
+    <h2 class="h-display">Um protocolo,<br /><span class="soft">nunca um palpite.</span></h2>
+  </div>
+
+  <div class="proc__rail" id="procRail">
+    <div class="proc__line" aria-hidden="true"><span id="procFill"></span></div>
+
+    <ol class="proc__steps">
+      <li class="proc__step">
+        <span class="proc__dot" aria-hidden="true"></span>
+        <em>01</em>
+        <h3>Diagnóstico</h3>
+        <p>Leitura de pressão, corrente, superaquecimento e sub-resfriamento. Dados antes de conclusão.</p>
+      </li>
+      <li class="proc__step">
+        <span class="proc__dot" aria-hidden="true"></span>
+        <em>02</em>
+        <h3>Identificação</h3>
+        <p>Isolamos a causa raiz — não o sintoma. Compressor, vazamento, controle ou circulação.</p>
+      </li>
+      <li class="proc__step">
+        <span class="proc__dot" aria-hidden="true"></span>
+        <em>03</em>
+        <h3>Reparo</h3>
+        <p>Peças compatíveis, solda limpa, vácuo e carga conforme especificação do fabricante.</p>
+      </li>
+      <li class="proc__step">
+        <span class="proc__dot" aria-hidden="true"></span>
+        <em>04</em>
+        <h3>Teste</h3>
+        <p>Ciclo completo sob carga. Medimos de novo e comparamos com o alvo de projeto.</p>
+      </li>
+      <li class="proc__step">
+        <span class="proc__dot" aria-hidden="true"></span>
+        <em>05</em>
+        <h3>Entrega</h3>
+        <p>Relatório do serviço, parâmetros finais e orientação de uso. Garantia registrada.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 06 — TECNOLOGIA ============ -->
+<section class="tech" id="tecnologia" data-section="tecnologia">
+  <canvas class="tech__canvas" id="techCanvas" aria-hidden="true"></canvas>
+
+  <div class="tech__inner">
+    <div class="tech__head" data-tech-parallax="0.35">
+      <span class="tag">[ 06 — Tecnologia ]</span>
+      <h2 class="h-display">O ciclo<br /><span class="soft">de refrigeração.</span></h2>
+      <p class="tech__lead">Todo sistema de frio faz a mesma coisa: retira calor de onde ele não deveria estar e o devolve para fora. A diferença está na precisão com que isso é feito.</p>
+    </div>
+
+    <div class="tech__diagram" data-tech-parallax="-0.18">
+      <div class="tech__stage" data-stage="1">
+        <em>01</em>
+        <h3>Ar quente</h3>
+        <p>O calor do ambiente é absorvido pelo fluido refrigerante no evaporador.</p>
+        <div class="tech__flow tech__flow--warm" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+      <div class="tech__stage" data-stage="2">
+        <em>02</em>
+        <h3>Processamento</h3>
+        <p>Compressor e condensador elevam a pressão e descarregam o calor para fora.</p>
+        <div class="tech__flow tech__flow--core" aria-hidden="true"><span></span></div>
+      </div>
+      <div class="tech__stage" data-stage="3">
+        <em>03</em>
+        <h3>Ar frio</h3>
+        <p>O fluido expande, esfria e devolve ar tratado ao ambiente em ciclo contínuo.</p>
+        <div class="tech__flow tech__flow--cold" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+
+    <div class="tech__readout" data-tech-parallax="0.12">
+      <div><em>ΔT</em><span>11.4 K</span></div>
+      <div><em>Superaquecimento</em><span>5.0 K</span></div>
+      <div><em>Ruído</em><span>19 dB(A)</span></div>
+      <div><em>Ciclo</em><span>Contínuo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 — CONFORTO ============ -->
+<section class="comfort" id="conforto" data-section="tecnologia">
+  <div class="comfort__media">
+    <video id="comfortVideo" class="comfort__video" src="assets/videos/comfort.mp4"
+           muted playsinline loop preload="none" poster="assets/images/poster-comfort.jpg" aria-hidden="true" data-fallback="https://d8j0ntlcm91z4.cloudfront.net/user_3IZOrgGtP6buNjeGHc2EBMXsOHp/hf_20260915_195453_bde72aff-39e4-4e70-9a56-b5f2e261d6d6.mp4"></video>
+    <div class="comfort__wash" aria-hidden="true"></div>
+  </div>
+
+  <div class="comfort__inner">
+    <h2 class="comfort__line comfort__line--1">Frio não é<br />apenas temperatura.</h2>
+    <h2 class="comfort__line comfort__line--2">É&nbsp;conforto.</h2>
+    <p class="comfort__note">O ponto certo é aquele em que ninguém percebe o sistema —
+      só percebe que o ambiente está exatamente como deveria estar.</p>
+  </div>
+</section>
+
+<!-- ============ 08 — PROVA ============ -->
+<section class="proof" data-section="tecnologia">
+  <div class="proof__grid">
+    <div class="proof__item">
+      <span class="proof__num" data-count="16" data-prefix="+">0</span>
+      <em>Anos de operação</em>
+    </div>
+    <div class="proof__item">
+      <span class="proof__num" data-count="4200" data-prefix="+">0</span>
+      <em>Clientes atendidos</em>
+    </div>
+    <div class="proof__item">
+      <span class="proof__num" data-count="9800" data-prefix="+">0</span>
+      <em>Serviços executados</em>
+    </div>
+    <div class="proof__item">
+      <span class="proof__num proof__num--static">24/7</span>
+      <em>Atendimento emergencial</em>
+    </div>
+  </div>
+  <p class="proof__disclaimer">* Números de demonstração — substituir pelos dados reais da empresa antes de publicar.</p>
+</section>
+
+<!-- ============ 09 — CTA ============ -->
+<section class="cta" id="contato" data-section="contato">
+  <div class="cta__mask" id="ctaMask">
+    <video class="cta__video" src="assets/videos/frost.mp4" muted playsinline loop preload="none" poster="assets/images/poster-frost.jpg" aria-hidden="true" data-fallback="https://d8j0ntlcm91z4.cloudfront.net/user_3IZOrgGtP6buNjeGHc2EBMXsOHp/hf_20260915_195443_d4bff3ea-80f3-41ab-b111-6ec9f2aa1d41.mp4"></video>
+  </div>
+
+  <div class="cta__inner">
+    <span class="tag tag--light">[ 07 — Contato ]</span>
+    <h2 class="cta__title">
+      <span class="mask"><span data-cta-word>Seu conforto</span></span>
+      <span class="mask"><span data-cta-word>começa aqui.</span></span>
+    </h2>
+    <p class="cta__sub">Diagnóstico, manutenção ou projeto — resposta no mesmo dia útil.</p>
+
+    <div class="cta__actions">
+      <a class="btn btn--primary" href="#contato">
+        <span>Solicitar atendimento</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" /></svg>
+      </a>
+      <a class="btn btn--ghost" href="#contato"><span>Fale conosco</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="foot__top">
+    <a class="foot__logo" href="#hero">FRIGUS</a>
+    <nav class="foot__links" aria-label="Rodapé">
+      <a href="#servicos">Serviços</a>
+      <a href="#processo">Processo</a>
+      <a href="#tecnologia">Tecnologia</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="foot__contact">
+      <a href="tel:+552100000000">+55 21 0000-0000</a>
+      <a href="mailto:contato@frigus.com.br">contato@frigus.com.br</a>
+    </div>
+  </div>
+  <div class="foot__bottom">
+    <span>Rio de Janeiro — RJ, Brasil</span>
+    <div class="foot__social">
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="LinkedIn">IN</a>
+      <a href="#" aria-label="WhatsApp">WA</a>
+    </div>
+    <span>© 2026 FRIGUS. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<!-- GSAP + ScrollTrigger (CDN). Para uso offline, baixe os dois arquivos
+     para js/vendor/ e troque os src por js/vendor/gsap.min.js e
+     js/vendor/ScrollTrigger.min.js — ver README.md -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/video-scroll.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

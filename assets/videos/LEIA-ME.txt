@@ -1,0 +1,15 @@
+Os videos da pagina ficam nesta pasta.
+
+Rode baixar-videos.bat (Windows) ou baixar-videos.sh (macOS/Linux) na raiz
+do projeto. O script faz DUAS coisas:
+
+  1. baixa os originais do CDN para originais/
+  2. recomprime para H.264 aqui
+
+A etapa 2 NAO e opcional. Os originais sao HEVC com um unico keyframe:
+nao tocam no Firefox e travam o scrub do hero. Requer ffmpeg instalado.
+Detalhes no README.md, secao "Recompressao".
+
+Esperados aqui:
+  hero-scrub.mp4   all-intra, usado so no scrub do hero
+  hero.mp4  coil.mp4  frost.mp4  ac.mp4  comfort.mp4   versoes em loop
