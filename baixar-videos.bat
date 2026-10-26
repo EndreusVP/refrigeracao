@@ -1,5 +1,5 @@
 @echo off
-REM FRIGUS - baixa os 5 videos gerados e prepara-os para a web.
+REM RefrigeraSim - baixa os 5 videos gerados e prepara-os para a web.
 REM
 REM Os originais sao HEVC (H.265) com UM unico keyframe no arquivo inteiro.
 REM Servir isso direto quebra duas coisas:

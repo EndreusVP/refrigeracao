@@ -1,5 +1,5 @@
 /* =========================================================
-   FRIGUS — animations.js
+   RefrigeraSim — animations.js
    Cada capítulo tem a sua própria linguagem de animação.
 
    HERO        scale + scrub
@@ -14,7 +14,7 @@
 (function (w, d) {
   "use strict";
 
-  var F = (w.FrigusAnim = {});
+  var F = (w.RefrigeraSimAnim = {});
 
   function q(s, c) { return (c || d).querySelector(s); }
   function qa(s, c) { return Array.prototype.slice.call((c || d).querySelectorAll(s)); }
@@ -30,7 +30,7 @@
     if (!hero || !media) return;
 
     /* vídeo conduzido pelo scroll */
-    w.FrigusVideo.scrubToScroll(video, {
+    w.RefrigeraSimVideo.scrubToScroll(video, {
       trigger: hero,
       start: "top top",
       end: "bottom bottom",
@@ -164,7 +164,7 @@
           yPercent: 6, ease: "none",
           scrollTrigger: { trigger: row, start: "top bottom", end: "bottom top", scrub: true }
         });
-        w.FrigusVideo.playInView(video, row);
+        w.RefrigeraSimVideo.playInView(video, row);
       }
     });
   };
@@ -175,7 +175,7 @@
     var track = q("#galTrack");
     if (!pin || !track) return;
 
-    qa("video", track).forEach(function (v) { w.FrigusVideo.playInView(v, pin); });
+    qa("video", track).forEach(function (v) { w.RefrigeraSimVideo.playInView(v, pin); });
 
     var tween = gsap.to(track, {
       x: function () { return -(track.scrollWidth - w.innerWidth); },
@@ -283,7 +283,7 @@
     if (!sec) return;
     var video = q("#comfortVideo");
 
-    w.FrigusVideo.playInView(video, sec);
+    w.RefrigeraSimVideo.playInView(video, sec);
 
     gsap.fromTo(q(".comfort__media", sec),
       { scale: 1.2, opacity: 0.4 },
@@ -335,7 +335,7 @@
     var mask = q("#ctaMask");
     if (!sec || !mask) return;
 
-    w.FrigusVideo.playInView(q(".cta__video", sec), sec);
+    w.RefrigeraSimVideo.playInView(q(".cta__video", sec), sec);
 
     gsap.fromTo(mask,
       { clipPath: "inset(42% 24% 42% 24% round 3px)" },

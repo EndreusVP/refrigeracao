@@ -1,4 +1,4 @@
-# FRIGUS — Engenharia do Frio
+# RefrigeraSim — Engenharia do Frio
 
 Site institucional premium e experimental para refrigeração e climatização.
 Experiência cinematográfica conduzida pelo scroll, com vídeo controlado pela
@@ -173,8 +173,8 @@ nunca fica em branco por causa de uma animação.
 
 - **Números da seção Prova** (`+16`, `+4.200`, `+9.800`) — são placeholders,
   sinalizados no próprio site pelo aviso abaixo do bloco.
-- Telefone, e-mail, endereço e redes sociais no rodapé.
-- Nome e identidade "FRIGUS", caso o cliente tenha marca própria.
+- **Endereço e redes sociais** do rodapé — Instagram e LinkedIn ainda
+  apontam para `#`. Telefones e e-mail já são os reais.
 
 ---
 
@@ -246,5 +246,3 @@ quadro a 60 fps.
 O all-intra custa tamanho (1,8 MB → 5,7 MB). Por isso **só** o hero usa esse
 encode (`hero-scrub.mp4`); as seções de Serviços e Galeria, que apenas tocam
 em loop, carregam o `hero.mp4` normal de 1,3 MB.
-#   r e f r i g e r a � � o  
- 

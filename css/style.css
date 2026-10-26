@@ -1,5 +1,5 @@
 /* =========================================================
-   FRIGUS — Engenharia do Frio
+   RefrigeraSim — Engenharia do Frio
    style.css
    1. Tokens          6. Serviços
    2. Base            7. Galeria horizontal
@@ -718,6 +718,10 @@ h1,h2,h3,p,figure{ margin:0; }
   font-family:var(--mono); font-size:10px; letter-spacing:.14em;
   text-transform:uppercase; color:var(--muted-dark);
 }
+/* O rodapé inferior é todo em caixa alta; a marca escapa da regra para
+   manter o S interno de RefrigeraSim. */
+.brand{ text-transform:none; letter-spacing:.1em; }
+
 .foot__social{ display:flex; gap:16px; }
 .foot__social a{ transition:color .3s; }
 .foot__social a:hover{ color:var(--ice-cold); }

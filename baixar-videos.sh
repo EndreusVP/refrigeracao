@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# FRIGUS — baixa os 5 vídeos gerados e prepara-os para a web.
+# RefrigeraSim — baixa os 5 vídeos gerados e prepara-os para a web.
 #
 # Os originais são HEVC (H.265) com UM único keyframe no arquivo inteiro.
 # Servir isso direto quebra duas coisas:

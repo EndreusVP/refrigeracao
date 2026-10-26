@@ -1,5 +1,5 @@
 /* =========================================================
-   FRIGUS — main.js
+   RefrigeraSim — main.js
    Navegação · menu · progresso · campo de partículas
    ========================================================= */
 (function (w, d) {
@@ -233,7 +233,7 @@
       qa("video").forEach(function (v) { v.removeAttribute("autoplay"); v.pause(); });
     } else if (!HAS_GSAP) {
       /* sem GSAP: o site perde as animações, mas os vídeos continuam rodando */
-      qa("video").forEach(function (v) { w.FrigusVideo.playInView(v); });
+      qa("video").forEach(function (v) { w.RefrigeraSimVideo.playInView(v); });
     }
 
     /* A partir daqui quem manda no hero é o GSAP (ou o .no-anim): a trava
@@ -246,14 +246,14 @@
        porque nada trava o scroll nem encolhe o <body>. O que ainda chega
        depois (webfont, window.load) é coberto por refreshWhenSettled. */
     try {
-      w.FrigusAnim.init();
-      if (w.FrigusAnim.heroIntro) w.FrigusAnim.heroIntro.play();
+      w.RefrigeraSimAnim.init();
+      if (w.RefrigeraSimAnim.heroIntro) w.RefrigeraSimAnim.heroIntro.play();
       refreshWhenSettled();
     } catch (err) {
       /* nunca deixa uma falha de animação quebrar a página */
       html.classList.add("no-anim");
-      qa("video").forEach(function (v) { w.FrigusVideo.playInView(v); });
-      if (w.console) console.warn("[FRIGUS] animações desativadas:", err);
+      qa("video").forEach(function (v) { w.RefrigeraSimVideo.playInView(v); });
+      if (w.console) console.warn("[RefrigeraSim] animações desativadas:", err);
     }
   }
 

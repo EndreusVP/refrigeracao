@@ -1,5 +1,5 @@
 /* =========================================================
-   FRIGUS — video-scroll.js
+   RefrigeraSim — video-scroll.js
    Liga a posição do scroll à timeline do vídeo.
    SCROLL POSITION === VIDEO TIMELINE
    ========================================================= */
@@ -220,7 +220,7 @@
     });
   }
 
-  w.FrigusVideo = {
+  w.RefrigeraSimVideo = {
     scrubToScroll: scrubToScroll,
     playInView: playInView,
     initFallbacks: initFallbacks,
